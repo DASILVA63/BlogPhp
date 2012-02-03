@@ -1,0 +1,40 @@
+<include tpl="header.html" />
+
+<h2>Édito</h2>
+<p class="extra">
+    Le listing ci-dessous recense les utilisateurs enregistrés sur le site. Qu'ils soient actifs ou non, ils apparaissent tous ici.
+</p>
+
+<h2>Liste des utilisateurs</h2>
+<p>
+    <table>
+        <tr style="font-weight:bold; text-align:center; ">
+            <td>Modifier</td>
+            <td>Groupe</td>
+            <td>Pseudo/Identifiant de connexion</td>
+            <td>Nom</td>
+            <td>Mail</td>
+            <td>Date d'inscription</td>
+            <td>Activé</td>
+        </tr>
+        
+        <block name="user">
+        <tr style="text-align:center;">
+            <td><a href="./admin/users/edit/{user.MID}/">Modifier</a></td>
+            <td>{user.G_TITLE}</a></td>
+            <td>{user.M_PSEUDO}</td>
+            <td>{user.M_PRENOM} {user.M_NOM}</td>
+            <td>{user.M_MAIL}</td>
+            <td>{user.F_DATE}</td>
+            <td><if condition="{$user.M_ACTIVATED}">Oui<else />Non</if></td>
+        </tr>
+        </block>
+    </table>
+</p>
+
+<h2>Liens rapides</h2>
+<ul>
+    <li><a href="./admin/users/new/">Ajouter un utilisateur</a></li>
+</ul>
+
+<include tpl="footer.html" />

@@ -1,0 +1,53 @@
+<include tpl="header.html" />
+
+<block name="article">
+<h1><a href="article/{article.AID}/" class="article_title">{article.TITRE}</a></h1>
+<div class="descr">
+    Le {article.F_DATE} par <strong>{article.M_PSEUDO}</strong> dans 
+    « <a href="{article.C_SLUG}/">{article.C_NOM}</a> » -
+    <a href="article/{article.AID}/">{article.NB_COMMENTS} commentaire(s)</a>
+</div>
+<div class="article">
+{article.F_CONTENU}
+</div>
+<hr />
+</block>
+
+<if condition="{$NB_COMS} != 0">
+<h1>Commentaires</h1>
+
+<block name="com">
+<div class="descr">Le {com.F_DATE} par <strong>{com.F_AUTEUR}</strong></div>
+<p>
+    {com.F_COMMENTAIRE}
+</p>
+</block>
+<hr />
+</if>
+
+<if condition="{$SINGLE_ARTICLE}">
+<if condition="{$ERREUR}">
+<h3>Erreur</h3>
+<ul>
+    <block name="message">
+        <li><strong>{message.FIELD_LABEL}</strong> {message.ERREUR}</li>
+    </block>
+</ul>
+</if>
+
+<h1>Écrire un commentaire</h1>
+
+{FORM}
+<else />
+<p>Pages : 
+<block name="pagination">
+<if condition="{$pagination.PAGE_NUM} == '...'">
+...
+<else />
+<a href="index/page/{pagination.PAGE_NUM}/" title="Voir la page {pagination.PAGE_NUM}">{pagination.PAGE_NUM}</a>
+</if>
+</block>
+</p>
+</if>
+
+<include tpl="footer.html" />

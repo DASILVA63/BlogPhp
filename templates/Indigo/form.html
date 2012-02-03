@@ -1,0 +1,24 @@
+<include tpl="header.html" />
+
+<if condition="{$ERREUR}">
+<h3>Erreur</h3>
+<ul>
+    <block name="message">
+        <li><strong>{message.FIELD_LABEL}</strong> {message.ERREUR}</li>
+    </block>
+</ul>
+</if>
+
+<if condition="{$MESSAGE} != ''">
+<h3>Message</h3>
+<p>
+    {MESSAGE}
+</p>
+</if>
+
+<h1>{PAGE_TITLE}</h1>
+<p>
+    {FORM}
+</p>
+
+<include tpl="footer.html" />

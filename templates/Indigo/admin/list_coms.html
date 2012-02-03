@@ -1,0 +1,39 @@
+<include tpl="header.html" />
+
+<h2>Édito</h2>
+<p class="extra">
+    Le listing ci-dessous recense les commentaires postés sur le site. Qu'ils soient visibles ou non, ils apparaissent tous ici.
+</p>
+
+<h2>Liste des commentaires</h2>
+<p>
+    <table>
+        <tr style="font-weight:bold; text-align:center; ">
+            <td>Modifier</td>
+            <!-- <td>Supprimer</td> -->
+            <td>Titre</td>
+            <td>Auteur</td>
+            <td>Date</td>
+            <td>Visible</td>
+        </tr>
+        
+        <block name="com">
+        <tr style="text-align:center;">
+            <td><a href="./admin/commentaires/edit/{com.RID}/">Modifier</a></td>
+            <!--<td><a href="index.php?page=admin_coms&del={com.RID}">Supprimer</a></td> -->
+            <td><a href="./article/{com.A_ID}/">{com.TITRE}</a></td>
+            <td>{com.AUTEUR}</td>
+            <td>{com.F_DATE}</td>
+            <td><if condition="{$com.VALIDE}">Oui<else />Non</if></td>
+        </tr>
+        </block>
+    </table>
+</p>
+
+<h2>Liens rapides</h2>
+<ul>
+    <li><a href="./admin/articles/new/">Rédiger un article</a></li>
+    <li><a href="./admin/articles/">Gérer les articles</a></li>
+</ul>
+
+<include tpl="footer.html" />

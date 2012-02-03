@@ -1,0 +1,43 @@
+<include tpl="header.html" />
+
+<h2>Édito</h2>
+<p class="extra">
+    Le listing ci-dessous recense les articles publiés sur le site. Qu'ils soient visibles ou non, ils apparaissent tous ici.
+</p>
+
+<h2>Liste des articles</h2>
+<p>
+    <table>
+        <tr style="font-weight:bold; text-align:center; ">
+            <td>Modifier</td>
+            <!-- <td>Supprimer</td> -->
+            <td>Titre</td>
+            <td>Auteur</td>
+            <td>Date</td>
+            <td>Nb de commentaires</td>
+            <td>Visible</td>
+        </tr>
+        
+        <block name="article">
+        <tr style="text-align:center;">
+            <td><a href="./admin/articles/edit/{article.AID}/">Modifier</a></td>
+            <!--<td><a href="index.php?page=admin_articles&del={article.AID}">Supprimer</a></td> -->
+            <td><a href="./article/{article.AID}/">{article.TITRE}</a></td>
+            <td>{article.M_PSEUDO}</td>
+            <td>{article.F_DATE}</td>
+            <td>{article.NB_COMMENTS}</td>
+            <td><if condition="{$article.VALIDE}">Oui<else />Non</if></td>
+        </tr>
+        </block>
+    </table>
+</p>
+
+<h2>Liens rapides</h2>
+<ul>
+    <li><a href="./admin/articles/new/">Rédiger un article</a></li>
+    <li><a href="./admin/categories/new/">Ajouter une catégorie</a></li>
+    <li><a href="./admin/categories/">Gérer les catégories</a></li>
+    <li><a href="./admin/commentaires/">Gérer les commentaires</a></li>
+</ul>
+
+<include tpl="footer.html" />
